@@ -89,10 +89,7 @@ python scripts\smoke_query.py
 - Küçük model seç: qwen2.5:1.5B veya phi3:mini.
 
 ## Ekran Görüntüsü
-`docs/screenshot.png` olarak ekleyip README’ye referans verebilirsiniz:
-```markdown
 ![UI](docs/screenshot.png)
-```
 
 ## Bilinen Uyarı
 - LangChain `ConversationBufferMemory` deprecation uyarısı işleyişi etkilemez; istenirse yeni memory API’sine taşınabilir.
