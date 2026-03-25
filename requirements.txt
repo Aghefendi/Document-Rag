@@ -1,0 +1,19 @@
+ibm-watsonx-ai
+langchain
+langchain-core
+langchain-community
+langchain-text-splitters
+langchain-ibm
+transformers==4.41.2
+huggingface-hub==0.23.4
+sentence-transformers==2.5.1
+chromadb
+wget==3.2
+torch --index-url https://download.pytorch.org/whl/cpu
+python-dotenv
+streamlit
+pypdf
+pymupdf
+pandas
+openpyxl
+langchain-ollama

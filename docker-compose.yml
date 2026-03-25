@@ -1,0 +1,37 @@
+version: "3.9"
+
+services:
+  ollama:
+    image: ollama/ollama:latest
+    container_name: ollama
+    ports:
+      - "11434:11434"
+    volumes:
+      - ollama-data:/root/.ollama
+
+  rag:
+    build: .
+    container_name: rag-app
+    depends_on:
+      - ollama
+    environment:
+      - OLLAMA_HOST=http://ollama:11434
+      - EMBED_BACKEND=ollama
+      - EMBED_MODEL=nomic-embed-text
+      - OLLAMA_MODEL=qwen2.5:1.5b-instruct
+      - OLLAMA_NUM_CTX=2048
+      - OLLAMA_NUM_PREDICT=96
+      - OLLAMA_TEMPERATURE=0.1
+      - OLLAMA_NUM_PARALLEL=1
+      - OLLAMA_NUM_THREAD=2
+      - IBM_CLOUD_API_KEY=${IBM_CLOUD_API_KEY:-}
+      - WATSONX_PROJECT_ID=${WATSONX_PROJECT_ID:-skills-network}
+    ports:
+      - "8502:8501"
+    volumes:
+      - ./tmp:/app/tmp
+      - ./docs:/app/docs
+    command: ["streamlit", "run", "app.py", "--server.port=8501", "--server.address=0.0.0.0"]
+
+volumes:
+  ollama-data:

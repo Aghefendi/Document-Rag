@@ -1,0 +1,17 @@
+.git
+.gitignore
+__pycache__/
+.venv/
+.env*
+tmp/
+chroma_db/
+.qodo/
+.vscode/
+*.code-workspace
+*.pyc
+*.pyo
+*.pyd
+*.log
+*.swp
+*.swo
+docs/screenshot.png
